@@ -1,6 +1,6 @@
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+All mt code is here. and my answers to 5-11 is in the code doc. I really really tried to do my best :(( 
 
 ## Folder Structure
 
