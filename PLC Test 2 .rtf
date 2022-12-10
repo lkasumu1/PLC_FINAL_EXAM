@@ -1,0 +1,70 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue0;\red194\green126\blue101;
+\red202\green202\blue202;\red194\green126\blue101;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\csgray\c0\c0;\cssrgb\c80778\c56830\c46925;
+\cssrgb\c83137\c83137\c83137;\cssrgb\c80784\c56863\c47059;}
+\margl1440\margr1440\vieww19220\viewh14880\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \expnd0\expndtw0\kerning0
+Keyword, loop = circle \
+Keyword, switch statement = ss\
+Keyword, else = el\
+Keyword, start = Begin\
+Keyword, end = ed\
+Keyword, byte1 = mem1\
+Keyword, byte2 = mem2\
+Keyword, byte4 = mem4\
+Keyword, byte8 = mem8\
+Keyword, true = tru\
+Keyword, false = fal\
+Keyword, and = &&\
+Keyword, or = ||\
+\
+Symbols: \
+Symbol, leftp = (\
+Symbol, rightp = )\
+Symbol, eos = ;\
+Symbol, add = +\
+Symbol, sub = -\
+Symbol, mult= *\
+Symbol, div = \\\
+Symbol, mod = %\
+Symbol, ass = =\
+Symbol, nte = !=\
+Symbol, eq = =\
+Symbol, lst= <\
+Symbol, lste = <=\
+Symbol, grt = >\
+Symbol, grte = >=\
+Lit: [0-9]+\
+Idf = ([a-zA-Z]|_)\
+\
+\
+Ss \'97> \'91Begin\'92 <stmt>\
+<stmt> -> <loop> | <switch> | <var_op> | <block> \
+<block> \'97> \'91\{\'91 <stmt> \'91;\'92 \'91\}\'92\
+<switch> \'97> \'91[ss]\'92 <boolexpr> <block> [\'91[el]\'92<block>]\
+<loop> \'97> \'91[circle]\'92 <boolexpr><block>\
+<var_op> \'97>\'92idf\'92(declare|<ass>)\
+<declare> \'97> \'91[mem1]\'92 | [mem2]\'92 | [mem4]\'92 | [mem8]\'92\
+<ass> \'97> \'91=\'91 <expr> \
+<factor> \'97> \'91idf\'92| \'91lit\'92 | \'92(\'91 <expr> \'91)\'92\
+\
+\pard\tx10096\pardeftab720\partightenfactor0
+\cf2 \cb3 \outl0\strokewidth0 \strokec4 <boolexpr> --> <bor> \{ `OR` <bor> \}\strokec5 \
+\strokec6 <bor> --> <beq> \{ `OR` <beq> \}\strokec5 \
+\strokec6 <beq> --> <brel> \{ (`!=`|`==`) <brel> \}\strokec5 \
+\strokec6 <brel> --> <expr> \{ (`<=`|`>=` | `<` | `>`) <expr> \}\strokec5 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb1 \outl0\strokewidth0 <expr> \'97> <term> \{(\'91*\'92 | \'91/\'92 | \'91%\'92)<term>\}\cf5 \outl0\strokewidth0 \strokec5 \
+\pard\tx10096\pardeftab720\partightenfactor0
+\cf2 \cb3 \strokec6 <term> --> <not> \{ (`+`|`-`|``) <factor> \}\cf5 \cb1 \strokec5 \
+\cf2 \cb3 \strokec6 <not> -> [!]<bfactor>\cf5 \cb1 \strokec5 \
+\cf2 \cb3 \strokec6 <factor> --> `id` | `int_lit` | `float_lit` | `bool_lit` | `(` <bexpr> `)`\
+\
+3. This is not a pairwise disjoint and there is no left hand recursion since I have <block> so it gets rid of recursion \
+4. The same rule can\'92t be made twice \cf2 \cb1 \outl0\strokewidth0 \
+}
